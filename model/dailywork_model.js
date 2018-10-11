@@ -16,7 +16,25 @@ var dailywork={
       } ,
       getBatchStandardSubjectonDailyWork:function(callback){
           return db.query('select b.*,s.*,su.*,d.* from batch_table b,standard_table s,subject_table su,dailywork_table d  where b.batch_id=d.fk_batch_id and s.standard_id=d.fk_standard_id and su.subject_id=d.fk_subject_id',callback)
-      }
+      },
+      getDailyById:function(work_id,callback){
+        return db.query('select b.*,s.*,su.*,d.* from batch_table b,standard_table s,subject_table su,dailywork_table d  where b.batch_id=d.fk_batch_id and s.standard_id=d.fk_standard_id and su.subject_id=d.fk_subject_id and work_id=?',[work_id],callback);
+      },
+      deleteDaily:function(work_id,callback){
+        return db.query('delete from dailywork_table where work_id=?',[work_id],callback);
+      },
+      multipleDailyWork:function(item,callback){
+        var delarr=[];
+        console.log(item);
+        console.log(item.length);
+        for(i=0;i<item.length;i++){
+            console.log(item);
+            delarr[i]=item[i].work_id;
+        }
+       return db.query("delete from dailywork_table where work_id in (?)",[delarr],callback);
+       
+    }
+    };
 
-}
+
 module.exports=dailywork;

@@ -42,8 +42,20 @@ var storage = multer.diskStorage({
             
         
     
-router.put('/:work_id',upload.single('image'),function(req,res,next){
-    dailyWorkAdd.updateDailyWork(req.body,req.params.work_id,req.file.filename,function(err,rows){
+router.put('/:work_id',function(req,res,next){
+    dailyWorkAdd.updateDailyWork(req.body,req.params.work_id,function(err,rows){
+        if(err)
+        {
+            res.json(err)
+        }
+        else{
+            res.json(rows)
+        }
+    });
+  
+});
+router.delete('/:work_id',function(req,res,next){
+    dailyWorkAdd.deleteDaily(req.params.work_id,function(err,rows){
         if(err)
         {
             res.json(err)

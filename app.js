@@ -12,6 +12,7 @@ var standard=require('./routes/standard_router');
 var dailyworkadd=require('./routes/dailywork_router');
 var subject=require('./routes/subject_routes');
 var alldaily=require('./routes/displayalldaily_router');
+var dailyworkdel=require('./routes/dailyworkdel_router');
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use('/standard',standard);
 app.use('/dailyworkadd',dailyworkadd);
 app.use('/subject',subject);
 app.use('/alldaily',alldaily);
+app.use('/dailyworkdel',dailyworkdel);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
