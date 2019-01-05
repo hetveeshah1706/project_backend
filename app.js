@@ -13,6 +13,17 @@ var dailyworkadd=require('./routes/dailywork_router');
 var subject=require('./routes/subject_routes');
 var alldaily=require('./routes/displayalldaily_router');
 var dailyworkdel=require('./routes/dailyworkdel_router');
+var updateDailyWorkImage=require('./routes/dailyimageupdate_router');
+var notice=require('./routes/notice_router');
+var multidelnotice=require('./routes/multipledelete_notice');
+var node_mail=require('./routes/nodemailer_router');
+var assignment=require('./routes/assignmnet_router');
+var assignmentupdate=require('./routes/assupdateimage_router');
+var schedule=require('./routes/schedule_router');
+var schedule1=require('./routes/schedule_router1');
+var faculty=require('./routes/faculty_router');
+var result=require('./routes/result_router');
+var attendance=require('./routes/attendance_router')
 var app = express();
 
 // view engine setup
@@ -34,6 +45,17 @@ app.use('/dailyworkadd',dailyworkadd);
 app.use('/subject',subject);
 app.use('/alldaily',alldaily);
 app.use('/dailyworkdel',dailyworkdel);
+app.use('/updatedailyImage',updateDailyWorkImage);
+app.use('/notice',notice);
+app.use('/nodemail',node_mail);
+app.use('/multidelnotice',multidelnotice);
+app.use('/assignment',assignment);
+app.use('/assignmentupdate',assignmentupdate);
+app.use('/schedule',schedule);
+app.use('/schedule1',schedule1);
+app.use('/faculty',faculty);
+app.use('/result',result);
+app.use('/attendance',attendance);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
