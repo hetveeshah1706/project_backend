@@ -24,6 +24,26 @@ var schedule1=require('./routes/schedule_router1');
 var faculty=require('./routes/faculty_router');
 var result=require('./routes/result_router');
 var attendance=require('./routes/attendance_router')
+var attendance1=require('./routes/attendance_router1')
+var attendance2=require('./routes/attendance_router2');
+var attendance_absent=require('./routes/attendance_absent_router');
+var attendance_present=require('./routes/attendance_present_router');
+var addattendance=require('./routes/attendance_add_data_router');
+var attadd=require('./routes/attendance_router3');
+var fees=require('./routes/fees_router');
+var wholefees=require('./routes/whole_fees_remaining.router');
+var getfees=require('./routes/getallstudentfess_router');
+var student=require('./routes/student_router');
+var deletestudent=require('./routes/multiple_delete_student_router');
+var feesdetail=require('./routes/fees_detail');
+var examschedule=require('./routes/exam_schedule_router');
+var exam_schedule_mergedata=require('./routes/exam_schedule_mergedata_router');
+var exam_result=require('./routes/examresult_router');
+var examresultmerge=require('./routes/examresult_merge_router');
+var examresultmergedataadd=require('./routes/examresultstuadd_router');
+var student_login=require('./routes/student_login');
+var student_front_display=require('./routes/student_frontdisplay_router');
+var student_attendance_ionic=require('./routes/attendancestudentionic_router');
 var app = express();
 
 // view engine setup
@@ -56,6 +76,26 @@ app.use('/schedule1',schedule1);
 app.use('/faculty',faculty);
 app.use('/result',result);
 app.use('/attendance',attendance);
+app.use('/attendance1',attendance1);
+app.use('/attendance2',attendance2);
+app.use('/attendance_absent',attendance_absent);
+app.use('/attendance_present',attendance_present);
+app.use('/addattendance',addattendance);
+app.use('/attadd',attadd);
+app.use('/fees',fees);
+app.use('/wholefees',wholefees);
+app.use('/getfees',getfees)
+app.use('/student',student)
+app.use('/deletestudent',deletestudent)
+app.use('/feesdetail',feesdetail)
+app.use('/examschedule',examschedule)
+app.use('/exam_schedule_mergedata',exam_schedule_mergedata)
+app.use('/exam_result',exam_result)
+app.use('/examresultmerge',examresultmerge)
+app.use('/examresultmergedataadd',examresultmergedataadd)
+app.use('/studentlogin',student_login)
+app.use('/studentfrontdisplay',student_front_display);
+app.use('/attendancestudent',student_attendance_ionic);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

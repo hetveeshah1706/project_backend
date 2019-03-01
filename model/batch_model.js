@@ -4,7 +4,7 @@ var batch={
       return db.query('select * from batch_table',callback);
   },
   getBatchById:function(batch_id,callback){
-    return db.query('select b.*,s.* from batch_table b,standard_table s where batch_id=? and s.standard_id=b.fk_standard_id',[batch_id],callback);
+    return db.query('select b.*,s.* from batch_table b,standard_table s where b.batch_id=? and s.standard_id=b.fk_standard_id',[batch_id],callback);
   },
   addBatch:function(item,callback){
     return db.query('insert into batch_table (batch_name,fk_standard_id) values (?,?)',[item.batch_name,item.fk_standard_id],callback);

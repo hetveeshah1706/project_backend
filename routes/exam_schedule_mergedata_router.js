@@ -1,9 +1,9 @@
-var faculty=require('../model/faculty_model')
+var examschedulemergedata=require('../model/exam_schedule_model')
 var express=require('express');
 var router=express.Router();
 router.get('/',function(req,res,next){
     
-        faculty.getAllFaculty(function(err,rows)
+        examschedulemergedata.getBatchStdSub(function(err,rows)
         {
             if(err)
             {
@@ -13,13 +13,9 @@ router.get('/',function(req,res,next){
                 res.json(rows)
             }
         });
-
-    
-   
-
 });
 router.post("/",function(req,res,next){
-    faculty.getFacultyById(req.body,function(err,rows){
+    examschedulemergedata.multipleSchedule(req.body,function(err,rows){
         if(err)
         {
             res.json(err)

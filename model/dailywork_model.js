@@ -38,7 +38,8 @@ var dailywork={
         }
        return db.query("delete from dailywork_table where work_id in (?)",[delarr],callback);
        
-    }
+    },
+  
     };
 
 
