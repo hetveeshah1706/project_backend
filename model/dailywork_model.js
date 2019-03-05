@@ -39,6 +39,16 @@ var dailywork={
        return db.query("delete from dailywork_table where work_id in (?)",[delarr],callback);
        
     },
+    getDailyWorkIonic:function(student_id,callback){
+        return db.query("select stu.*,sub.*,subj.*,daily.* from  student_table stu,sub_table sub,subject_table subj,dailywork_table daily where stu.student_id=sub.fk_student_id and subj.subject_id=sub.fk_subject_id and daily.work_id=stu.fk_work_id and stu.student_id=?",[student_id],callback);
+    },
+    getDailyworkIonicById:function(item,callback){
+
+
+        console.log(item);
+        return db.query("select * from dailywork_table where fk_standard_id=? and fk_subject_id=? and fk_batch_id=? and fk_student_id=?",[item.fk_standard_id,item.fk_subject_id,item.fk_batch_id,item.fk_student_id],callback);
+    
+}
   
     };
 

@@ -44,6 +44,8 @@ var examresultmergedataadd=require('./routes/examresultstuadd_router');
 var student_login=require('./routes/student_login');
 var student_front_display=require('./routes/student_frontdisplay_router');
 var student_attendance_ionic=require('./routes/attendancestudentionic_router');
+var student_subject_display=require('./routes/student_subject_display_router');
+var dailyWorkIonic=require('./routes/dailywork_ionic');
 var app = express();
 
 // view engine setup
@@ -96,6 +98,8 @@ app.use('/examresultmergedataadd',examresultmergedataadd)
 app.use('/studentlogin',student_login)
 app.use('/studentfrontdisplay',student_front_display);
 app.use('/attendancestudent',student_attendance_ionic);
+app.use('/student_subject_display',student_subject_display);
+app.use('/dailyWorkIonic',dailyWorkIonic);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
