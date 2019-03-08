@@ -23,6 +23,9 @@ var examresult={
     },
     getAllStudent:function(callback){
         return db.query("select * from student_table",callback);
+    },
+    getExamResultIonic(fk_student_id,callback){
+        return db.query("select exam_schedule.*,exam.*,student.student_name,student.student_name,subject.subject_name,std.standard_no from exam_schedule_table exam_schedule,exam_table exam,student_table student,subject_table subject,standard_table std where exam_schedule.exam_id=exam.fk_exam_id and student.student_id=exam.fk_student_id and subject.subject_id=exam_schedule.fk_subject_id and std.standard_id=exam_schedule.fk_standard_id and exam.fk_student_id=?",[fk_student_id],callback);
     }
     
 }
